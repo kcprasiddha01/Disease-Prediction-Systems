@@ -1,0 +1,183 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+{% include 'imports.html' %}
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <!-- END nav -->
+    <form class="container col-md-6" method="post" action="{% url 'breastcancerPrediction' %}">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="radius">Radius:</label>
+            <input type="number" step="any" class="form-control" id="radius" name="radius">
+        </div>
+        <div class="form-group">
+            <label for="texture">Texture:</label>
+            <input type="number" step="any" class="form-control" id="texture" name="texture">
+        </div>
+        <div class="form-group">
+            <label for="perimeter">Perimeter:</label>
+            <input type="number" step="any" class="form-control" id="perimeter" name="perimeter">
+        </div>
+        
+        <div class="form-group">
+            <label for="area">Area:</label>
+            <input type="number" step="any" class="form-control" id="area" name="area">
+        </div>
+
+        <div class="form-group">
+            <label for="smoothness">Smoothness:</label>
+            <input type="number" step="any" class="form-control" id="smoothness" name="smoothness">
+        </div>
+
+        <div class="form-group">
+            <label for="compactness">Compactness:</label>
+            <input type="number" step="any" class="form-control" id="compactness" name="compactness">
+        </div>
+
+        <div class="form-group">
+            <label for="concavity">Concavity:</label>
+            <input type="number" step="any" class="form-control" id="concavity" name="concavity">
+        </div>
+
+        <div class="form-group">
+            <label for="concavePoints">Concave Points:</label>
+            <input type="number" step="any" class="form-control" id="concavePoints" name="concavePoints">
+        </div>
+        <div class="form-group">
+            <label for="symmetry">Symmetry:</label>
+            <input type="number" step="any" class="form-control" id="symmetry" name="symmetry">
+        </div>
+        <div class="form-group">
+            <label for="fractalDimemsion">Fractal Dimemsion:</label>
+            <input type="number" step="any" class="form-control" id="fractalDimemsion" name="fractalDimemsion">
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="radiusse">Radius Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="radiusse" name="radiusse">
+        </div>
+        <div class="form-group">
+            <label for="texturese">Texture Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="texturese" name="texturese">
+        </div>
+        <div class="form-group">
+            <label for="perimeter">Perimeter Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="perimeterse" name="perimeterse">
+        </div>
+        
+        <div class="form-group">
+            <label for="arease">Area Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="arease" name="arease">
+        </div>
+
+        <div class="form-group">
+            <label for="smoothnessse">Smoothness Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="smoothnessse" name="smoothnessse">
+        </div>
+
+        <div class="form-group">
+            <label for="compactnessse">Compactness Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="compactnessse" name="compactnessse">
+        </div>
+
+        <div class="form-group">
+            <label for="concavityse">Concavity Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="concavityse" name="concavityse">
+        </div>
+
+        <div class="form-group">
+            <label for="concavePointsse">Concave Points Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="concavePointsse" name="concavePointsse">
+        </div>
+        <div class="form-group">
+            <label for="symmetryse">Symmetry Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="symmetryse" name="symmetryse">
+        </div>
+        <div class="form-group">
+            <label for="fractalDimemsionse">Fractal Dimemsion Standard Error:</label>
+            <input type="number" step="any" class="form-control" id="fractalDimemsionse" name="fractalDimemsionse">
+        </div>
+
+
+        <div class="form-group">
+            <label for="radiusWorst">Radius Worst:</label>
+            <input type="number" step="any" class="form-control" id="radiusWorst" name="radiusWorst">
+        </div>
+        <div class="form-group">
+            <label for="textureWorst">Texture Worst:</label>
+            <input type="number" step="any" class="form-control" id="textureWorst" name="textureWorst">
+        </div>
+        <div class="form-group">
+            <label for="perimetWorst">Perimeter Worst:</label>
+            <input type="number" step="any" class="form-control" id="perimeterWorst" name="perimeterWorst">
+        </div>
+        
+        <div class="form-group">
+            <label for="areaWorst">Area Worst:</label>
+            <input type="number" step="any" class="form-control" id="areaWorst" name="areaWorst">
+        </div>
+
+        <div class="form-group">
+            <label for="smoothnessWorst">Smoothness Worst:</label>
+            <input type="number" step="any" class="form-control" id="smoothnessWorst" name="smoothnessWorst">
+        </div>
+
+        <div class="form-group">
+            <label for="compactnessWorst">Compactness Worst:</label>
+            <input type="number" step="any" class="form-control" id="compactnessWorst" name="compactnessWorst">
+        </div>
+
+        <div class="form-group">
+            <label for="concavityWorst">Concavity Worst:</label>
+            <input type="number" step="any" class="form-control" id="concavityWorst" name="concavityWorst">
+        </div>
+
+        <div class="form-group">
+            <label for="concavePointsWorst">Concave Points Worst:</label>
+            <input type="number" step="any" class="form-control" id="concavePointsWorst" name="concavePointsWorst">
+        </div>
+        <div class="form-group">
+            <label for="symmetryWorst">Symmetry Worst:</label>
+            <input type="number" step="any" class="form-control" id="symmetryWorst" name="symmetryWorst">
+        </div>
+        <div class="form-group">
+            <label for="fractalDimemsionWorst">Fractal Dimemsion Worst:</label>
+            <input type="number" step="any" class="form-control" id="fractalDimemsionWorst" name="fractalDimemsionWorst">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+    <div>
+        <hr>
+        <hr>
+
+    </div>
+
+
+
+
+    <div>
+
+        <footer>
+            {% include 'footer.html' %}
+        </footer>
+    </div>
+
+
+
+
+    {% include 'scripts.html' %}
+
+</body>
+
+</html>
