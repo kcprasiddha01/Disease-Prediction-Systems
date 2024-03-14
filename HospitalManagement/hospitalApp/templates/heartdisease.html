@@ -1,0 +1,132 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+{% include 'imports.html' %}
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <!-- END nav -->
+
+
+    <form class="container col-md-6" method="post" action="{% url 'heartdiseasePrediction' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" id="age" name="age">
+        </div>
+        <div class="form-group">
+            <label for="sex">Sex:</label>
+            <select class="form-control" id="sex" type="number" name="sex">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="chestPain">Chest Pain:</label>
+            <select class="form-control" id="chestPain" type="number" name="chestPain">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="restingBloodPressure">Resting Blood Pressure:</label>
+            <input type="number" class="form-control" id="restingBloodPressure" name="restingBloodPressure">
+        </div>
+        <div class="form-group">
+            <label for="cholesterol">Cholesterol:</label>
+            <input type="number" class="form-control" id="cholesterol" name="cholesterol">
+        </div>
+        <div class="form-group">
+            <label for="fastingBloodSugar">Fasting Blood Sugar:</label>
+            <select class="form-control" id="fastingBloodSugar" name="fastingBloodSugar" type="number">
+
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="restingElectrocardiographic">Resting Electro Cardiographic:</label>
+            <select class="form-control" id="restingElectrocardiographic" name="restingElectrocardiographic">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="maximumHeartRate">Maximum Heart Rate:</label>
+            <input type="number" class="form-control" id="maximumHeartRate" name="maximumHeartRate">
+        </div>
+        <div class="form-group">
+            <label for="ExerciseInducedAngina">Exercise Induced Angina:</label>
+            <select class="form-control" id="ExerciseInducedAngina" name="ExerciseInducedAngina">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="STdepression">ST depression:</label>
+            <input type="number" class="form-control" id="STdepression" name="STdepression">
+        </div>
+
+        <div class="form-group">
+            <label for="slope">Slope of peak excerise ST segment:</label>
+            <select class="form-control" id="slope" name="slope">
+                <option value="0">0-Upsloping</option>
+                <option value="1">1-Flat</option>
+                <option value="2">2-Downsloping</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ca">No of vessels Colored</label>
+            <select class="form-control" id="ca" name="ca">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="thal">Blood disorder "Thalassemia":</label>
+            <select class="form-control" id="thal" name="thal">
+                <option value="1">1-Normal</option>
+                <option value="2">2-Fixed defect</option>
+                <option value="3">3-Reversable defect</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+    <div>
+        <hr>
+        <hr>
+
+    </div>
+
+
+
+
+    <div>
+
+        <footer>
+            {% include 'footer.html' %}
+        </footer>
+    </div>
+
+
+
+
+    {% include 'scripts.html' %}
+
+</body>
+
+</html>
