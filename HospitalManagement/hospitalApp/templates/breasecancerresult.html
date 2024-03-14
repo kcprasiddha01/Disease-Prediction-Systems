@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'imports.html' %}
+</head>
+<style>
+    section{
+        margin-top: 10px;
+    }
+    #footer{
+        margin-top: 250px;
+    }
+    h2{
+        color: brown;
+
+    }
+</style>
+
+<body>
+    <section>
+        {% include 'navbar.html' %}
+    </section>
+
+    <section>
+        <h1>Breast Cancer prediction Result</h1>
+    </section>
+
+    <section>
+        <div>
+            <h2>The prediction is : {{ result }}</h2>
+
+        </div>
+    </section>
+
+
+</body>
+
+<section id="footer">
+    <footer>
+        {% include 'footer.html' %} {% include 'scripts.html' %}
+    </footer>
+
+</section>
+
+
+
+
+</html>
