@@ -18,6 +18,7 @@ class Appointment(models.Model):
     email =models.EmailField(unique=False)
     contact = models.CharField(max_length=10)
     specialty = models.CharField(max_length=50)
+
     date =models.DateField(blank=True)
     time =models.TimeField(blank=True)
     messages =models.CharField(max_length=500, null=True)
