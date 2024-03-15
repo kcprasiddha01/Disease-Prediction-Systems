@@ -234,19 +234,5 @@ def doctors(request):
 def about(request):
     return render(request,'about.html',{})
 
-# def createAppointment(request):
-#      if request.method == 'POST':
-#           if request.POST.get('name') and request.POST.get('email') and request.POST.get('date')and request.POST.get('time'):
-#                appointment = Appointment()
-#                appointment.name = request.POST.get('name')
-#                appointment.email = request.POST.get('email')
-#                appointment.date = request.POST.get('date')
-#                appointment.time = request.POST.get('time')
-#                appointment.save()
-
-#                return render (request, 'home')
-#      else:
-#         return render (request, 'home')
-
 
      
