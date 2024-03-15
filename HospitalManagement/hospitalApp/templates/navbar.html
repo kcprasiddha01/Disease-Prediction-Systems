@@ -5,7 +5,9 @@
   id="ftco-navbar"
 >
   <div class="container">
-    <a class="navbar-brand" href="home">Disease<span>Prediction</span></a>
+    <a class="navbar-brand" href="{% url 'home' %}"
+      >Disease<span>Prediction</span></a
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -29,8 +31,12 @@
         <li class="nav-item">
           <a href="{% url 'services' %}" class="nav-link">Services</a>
         </li>
-        <li class="nav-item"><a href="{% url 'doctors' %}" class="nav-link">Doctors</a></li>
-        <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+        <li class="nav-item">
+          <a href="{% url 'doctors' %}" class="nav-link">Doctors</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+        </li>
         <!-- <li class="nav-item">
             <a href="signup">
               <button class="btn btn-primary" >SignUp</button>
