@@ -6,7 +6,6 @@ from django.shortcuts import  render, redirect
 from .forms import signUpForm
 from django.contrib.auth import login
 from django.contrib import messages
-from django.contrib import messages
 from django.utils import timezone
 from hospitalApp.models import contactEnquiry
 from .models import Appointment
@@ -172,31 +171,23 @@ def save_appointment(request):
     if request.method == "POST":
         print(request.POST)
         name = request.POST.get('name')
-        emaill = request.POST.get('email')
+        email = request.POST.get('email')
+        contact = request.POST.get('contact')
+        specialty = request.POST.get('specialty')
         date = timezone.datetime.strptime(request.POST['date'], '%m/%d/%Y').strftime('%Y-%m-%d')
-        # time = timezone.datetime.strptime(request.POST['time'], '%H:%M')
         time = timezone.datetime.strptime(request.POST['time'], '%I:%M%p').time()
- 
+        messages = request.POST.get('message')
 
-        messagess = request.POST.get('message')
+
         if name and name.strip() != "":
-            en = Appointment(name = name, email = emaill, date = date, time = time, messages = messagess)
+            en = Appointment(name=name, email=email, contact=contact, date=date, time=time, messages=messages, specialty=specialty)
             en.save()
             return HttpResponse("Appointment saved successfully.")
         else:
             return HttpResponse("Error: Name is required.")
-        # here left side is the model field name and right side is var name in the function.........
-        # en = Appointment(name = name, email = emaill, date = date, time = time, messages = messagess)
-        # en.save()
-        
-        
+            
+
     return render(request, 'appointment.html')
-    
-    
-
-
-
-
 
 def signin(request):
 
@@ -216,10 +207,6 @@ def signin(request):
     
 
      return render(request,'signin.html',{})
-
-
-
-
 
 def signup(request):
     if request.method == "POST":
@@ -246,20 +233,6 @@ def doctors(request):
 
 def about(request):
     return render(request,'about.html',{})
-
-# def createAppointment(request):
-#      if request.method == 'POST':
-#           if request.POST.get('name') and request.POST.get('email') and request.POST.get('date')and request.POST.get('time'):
-#                appointment = Appointment()
-#                appointment.name = request.POST.get('name')
-#                appointment.email = request.POST.get('email')
-#                appointment.date = request.POST.get('date')
-#                appointment.time = request.POST.get('time')
-#                appointment.save()
-
-#                return render (request, 'home')
-#      else:
-#         return render (request, 'home')
 
 
      
