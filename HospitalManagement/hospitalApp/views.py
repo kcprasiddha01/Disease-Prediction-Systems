@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.utils import timezone
 from hospitalApp.models import contactEnquiry
 from .models import Appointment
+from django.utils import timezone
 from .models import HeartDisease
 
 # from sklearn.externals import joblib
@@ -176,16 +177,18 @@ def save_appointment(request):
         specialty = request.POST.get('specialty')
         date = timezone.datetime.strptime(request.POST['date'], '%m/%d/%Y').strftime('%Y-%m-%d')
         time = timezone.datetime.strptime(request.POST['time'], '%I:%M%p').time()
-        messages = request.POST.get('message')
+        msg = request.POST.get('message')
 
 
-        if name and name.strip() != "":
-            en = Appointment(name=name, email=email, contact=contact, date=date, time=time, messages=messages, specialty=specialty)
+        if name and name.strip() != "" :
+            en = Appointment(name=name, email=email, contact=contact, date=date, time=time, messages=msg, specialty=specialty)
             en.save()
-            return HttpResponse("Appointment saved successfully.")
+            messages.success(request, 'Appointment saved successfully')
+            # return HttpResponse("Appointment saved successfully.")
         else:
-            return HttpResponse("Error: Name is required.")
-            
+            messages.error(request, 'Error: Name is required')
+            return redirect('appointment')
+            # return HttpResponse("Error: Name is required.")   
 
     return render(request, 'appointment.html')
 
